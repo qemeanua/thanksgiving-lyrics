@@ -7,7 +7,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   body {
-    background: linear-gradient(to bottom, #800000, #b22222); /* burgundy festive background */
+    background: linear-gradient(to bottom, #800000, #b22222); /* burgundy theme */
     font-family: 'Arial', sans-serif;
     min-height: 100vh;
     display: flex;
@@ -27,14 +27,13 @@
     align-items: center;
     width: 100%;
     max-width: 800px;
-    box-sizing: border-box;
   }
   .song-button {
     display: block;
     width: 90%;
     max-width: 350px;
     background-color: #b22222;
-    color: #fff; /* buttons text white */
+    color: #fff;
     font-size: 1.2rem;
     text-align: center;
     padding: 14px;
@@ -59,6 +58,7 @@
     box-shadow: 0 6px 12px rgba(0,0,0,0.3);
     color: #000;
     overflow-y: auto;
+    max-height: 80vh;
   }
   .go-back {
     background-color: #b22222;
@@ -81,7 +81,7 @@
     padding-top: 25px;
     font-size: 1rem;
     text-align: center;
-    color: #FFD700; /* footer gold like header */
+    color: #FFD700;
     text-shadow: 1px 1px 2px #400000;
   }
 </style>
@@ -167,8 +167,7 @@ Gyara ni ma ai'kin ka (fix me for your service)
 
 Oh oh oh
 Oh oh oh
-Oh oh oh
-`
+Oh oh oh`
 },
 {
   title: "Rahama",
@@ -257,7 +256,6 @@ Yesu (Oh), Mai Rahama
 Ga hawaye na
 (Ban da wani) Ban da wani sai Kai`
 },
-// Haske, Soaking, Ga shi nan remain unchanged
 {
   title: "Haske",
   artist: "- Kaestrings",
@@ -320,8 +318,7 @@ Ni zan bi ka
 I will follow You Jesus
 I will follow till the very end
 Forever Jesus
-Forever Jesus
-`
+Forever Jesus`
 },
 {
   title: "Soaking",
@@ -502,9 +499,9 @@ Ya na nan
 const songsContainer = document.getElementById("songsContainer");
 const lyricsContainer = document.getElementById("lyricsContainer");
 
-function renderSongs(list) {
+function renderSongs() {
   songsContainer.innerHTML = "";
-  list.forEach(song => {
+  songs.forEach(song => {
     const btn = document.createElement("div");
     btn.textContent = song.title;
     btn.className = "song-button";
@@ -529,7 +526,7 @@ function goBack() {
   songsContainer.style.display = "flex";
 }
 
-renderSongs(songs);
+renderSongs();
 </script>
 
 </body>
