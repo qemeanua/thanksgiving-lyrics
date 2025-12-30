@@ -21,12 +21,20 @@
     color: #FFD700;
     text-shadow: 2px 2px 5px #400000;
   }
+  #songsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+  }
   .song-button {
     display: block;
-    width: 100%;
+    width: 90%;
     max-width: 350px;
     background-color: #b22222;
-    color: #fff; 
+    color: #fff; /* buttons text white */
     font-size: 1.2rem;
     text-align: center;
     padding: 14px;
@@ -64,30 +72,23 @@
     text-decoration: none;
   }
   .go-back:hover { background-color: #cd5c5c; }
-  #searchBar {
-    width: 100%;
-    max-width: 400px;
-    padding: 10px;
-    border-radius: 12px;
-    border: 2px solid #FFD700;
-    margin-bottom: 15px;
-    font-size: 1rem;
+  pre {
+    white-space: pre-wrap;
+    font-family: 'Arial', sans-serif;
   }
   footer {
     margin-top: auto;
     padding-top: 25px;
     font-size: 1rem;
     text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px 2px #FFD700;
+    color: #FFD700; /* footer gold like header */
+    text-shadow: 1px 1px 2px #400000;
   }
 </style>
 </head>
 <body>
 
 <h1 class="text-4xl font-bold mb-6">Ijere Thanksgiving</h1>
-
-<input id="searchBar" type="text" placeholder="Search songs..." onkeyup="filterSongs()"/>
 
 <div id="songsContainer" class="flex flex-col items-center w-full"></div>
 
@@ -254,10 +255,248 @@ Yesu (Oh), Mai Rahama
 (Ooh) Ban da wani sai Kai
 (Ye-) Yesu, Mai Rahama
 Ga hawaye na
-(Ban da wani) Ban da wani sai Kai
+(Ban da wani) Ban da wani sai Kai`
+},
+// Haske, Soaking, Ga shi nan remain unchanged
+{
+  title: "Haske",
+  artist: "- Kaestrings",
+  lyrics: `Ya Yesu kai ne haske na
+Nda ka bi hanyan nan zan bi
+Ya Yesu kai ne haske na
+Nda ka bi hanyan nan zan bi
+Ya Yesu kai ne haske na
+Nda ka bi hanyan nan zan bi
+Ya Yesu kai ne haske na
+Nda ka bi hanyan nan zan bi
+  
+Ni zan bi ka
+Ni zan bi ka
+Kai ne haske na
+Ni zan bi ka
+  
+Ni zan bi ka
+Ni zan bi ka
+Kai ne gaskiya
+Ni zan bi ka
+  
+Ni zan bi ka
+Ni zan bi ka
+Kai ne haske na
+Ni zan bi ka
+  
+Ni zan bi ka
+Ni zan bi ka
+Kai ne gaskiya
+Ni zan bi ka
+  
+You just lead me on
+I will follow You
+Step by step
+Step by step
+You just lead me on
+I will ride with You
+Everyday
+All my days
+  
+Ya Yesu kai ne haske na
+Nda ka bi hanyan nan zan bi
+Ya Yesu kai ne haske na
+Nda ka bi hanyan nan zan bi
+Ya Yesu kai ne haske na
+Nda ka bi hanyan nan zan bi
+Ya Yesu kai ne haske na
+Nda ka bi hanyan nan zan bi
+  
+Ni zan bi ka
+Ni zan bi ka
+Kai ne haske na
+Ni zan bi ka
+Ni zan bi ka
+Ni zan bi ka
+Kai ne gaskiya
+Ni zan bi ka
+
+I will follow You Jesus
+I will follow till the very end
+Forever Jesus
+Forever Jesus
 `
 },
-// ... Include Haske, Soaking, Ga shi nan here exactly as you pasted
+{
+  title: "Soaking",
+  artist: "- Kaestrings",
+  lyrics: `Give me substance
+Give me proofs
+Give me presence
+Give me You
+Give me substance
+Give me proofs
+Give me presence
+
+Let it show that I met with You
+Let it show that I met with you
+Let it show that I met with You
+Let it show that I met with you
+Chant
+Give me substance
+Give me proofs
+Give me PRESENCE
+Give me you
+
+Give me substance
+Give me proofs
+Give me EVIDENCE
+Give me you
+
+Give me substance
+Give me proofs
+Give me FIRE
+Give me you
+
+Give me substance
+Give me proofs
+Give me presence
+Let it show that I met with You
+Let it show that I met with you
+Let it show that I met with You
+Let it show that I met with you
+Lord, may it be known that I met with You
+Let it show that I met with You
+
+May it be heard that I met with Jesus
+Let it show that I met with you
+May it be felt that I met with you
+Let it show that I met with You
+And let it count that I met with you
+Let it show that I met with you
+Chant… 
+All I need is one encounter
+
+Look upon me with your mercy Lord
+All I need is one encounter
+Look upon me with your mercy Lord
+Let it show that I met with You
+Let it show that I met with you
+Let it show that I met with You
+Let it show that I met with you
+Let it show that I met with You
+Let it show that I met with you
+
+May it be known that I met with You
+Let it show that I met with You
+Let it show that I met with You
+Let it show that I met with you
+It will show that I met with you
+It will show that I met with you
+It will show that I met with you
+
+Let it show that I met with You
+Let it show that I met with you
+Let it show that I met with You
+Let it show that I met with you`
+},
+{
+  title: "Ga shi nan",
+  artist: "- Kaestrings",
+  lyrics: `Aya-ah-ah-ah
+Oh-oh-oh
+Oh-oh-oh, oh-oh
+
+Where two or three are gathered
+Lord You said You’d be there
+And Lord, we’re here
+We honour Your presence
+
+Where two or three are gathered
+Lord You said You’d be there
+And Lord, we’re here
+We honour Your presence
+
+Ga shi nan
+Ga mu nan
+Sarkin Aljanna
+Ya na nan
+
+Ga shi nan
+Ga mu nan
+Ya na nan
+
+Oh, glory hallelujah
+
+Ga shi nan
+Ga mu nan
+Sarkin Aljanna
+Ya na nan
+
+Ga shi nan
+Ga mu nan
+Ya na nan
+
+Oh-oh-oh-oh-oh-oh
+Oh-oh-oh-oh, oh-oh-oh-oh-oh-oh
+Aya-oh, oh-oh-oh-oh-oh
+Ay-yeah, miracles in the room
+Oh, oh-oh, oh-oh-oh-oh-oh-oh
+Aya-oh, oh-oh-oh, oh-oh-oh
+Ay-yeah
+
+Jesus is here, Jesus is here
+Everything I need is here
+Jesus is here, King of kings is here
+Miracles in the room
+
+Nothing is impossible in Your presence
+Nothing is impossible in Your presence, Lord
+Nothing is impossible in Your presence, Lord
+Ay-ay-ay, oh-oh-oh-ah
+
+Ga shi nan
+Ga mu nan
+Sarkin Aljanna
+Ya na nan
+
+Ga shi nan
+Ga mu nan
+Ya na nan
+
+With everything that He is
+
+Ga shi nan
+Ga mu nan
+Sarkin Aljanna
+Ya na nan
+
+Ga shi nan
+Ga mu nan
+Ya na nan
+
+Oh, Sarkin Sarakuna
+Ya na nan
+Ya na nan
+Sarkin Sarakuna
+Oh, ya na nan
+Ay-yeah
+Oh, ya na nan
+Ya na nan
+Oh, ya na nan, na na nan
+Ya na nan, ay
+
+I can never be the same again
+Because I’m in Your presence
+I can never be the same again
+Because I’m in Your presence
+Oh, oh, oh
+
+Ga shi nan
+Ga mu nan
+Sarkin Aljanna
+Ya na nan
+
+Ga shi nan
+Ga mu nan
+Ya na nan
+}`
 ];
 
 const songsContainer = document.getElementById("songsContainer");
@@ -274,15 +513,8 @@ function renderSongs(list) {
   });
 }
 
-function filterSongs() {
-  const query = document.getElementById("searchBar").value.toLowerCase();
-  const filtered = songs.filter(song => song.title.toLowerCase().includes(query));
-  renderSongs(filtered);
-}
-
 function showLyrics(song) {
   songsContainer.style.display = "none";
-  document.getElementById("searchBar").style.display = "none";
   lyricsContainer.style.display = "block";
   lyricsContainer.innerHTML = `
     <span class="go-back" onclick="goBack()">← Go Back</span>
@@ -295,7 +527,6 @@ function showLyrics(song) {
 function goBack() {
   lyricsContainer.style.display = "none";
   songsContainer.style.display = "flex";
-  document.getElementById("searchBar").style.display = "block";
 }
 
 renderSongs(songs);
