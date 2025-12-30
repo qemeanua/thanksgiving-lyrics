@@ -1,84 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ijere Thanksgiving</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   body {
-    background: linear-gradient(to bottom, #fff5f0, #ffe6e6);
     font-family: 'Arial', sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: url('https://images.unsplash.com/photo-1605902711622-cfb43c44340f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGJ1cmd1bmR5JTIwY2hyaXN0bWFzfGVufDB8fHx8MTY5ODU4NzQyMw&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center fixed;
+    background-size: cover;
     padding: 20px;
   }
-  h1 { text-align: center; }
+  h1 {
+    color: #FFD700;
+    text-align: center;
+    text-shadow: 2px 2px 4px #800000;
+  }
   .song-button {
     display: block;
     width: 100%;
     max-width: 350px;
-    background-color: #FF6F61;
-    color: white;
+    background-color: #800000;
+    color: #FFD700;
     font-size: 1.2rem;
     text-align: center;
-    padding: 12px;
+    padding: 14px;
     border-radius: 12px;
-    margin: 10px 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin: 12px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     cursor: pointer;
     transition: transform 0.2s, background-color 0.3s;
-    position: relative;
   }
-  .song-button:hover { background-color: #FF8C66; transform: translateY(-3px); }
-  .song-button::before { content: "🎁🎄"; position: absolute; left: 10px; }
-  .song-button::after { content: "🦌❄️"; position: absolute; right: 10px; }
+  .song-button:hover {
+    background-color: #A52A2A;
+    transform: translateY(-3px);
+  }
   .lyrics-section {
     display: none;
     width: 100%;
-    max-width: 700px;
-    background: #fff;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
-    padding: 20px;
+    padding: 25px;
     margin-top: 20px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
     overflow-y: auto;
   }
   .go-back {
-    background-color: #FF6F61;
-    color: white;
-    padding: 8px 14px;
+    background-color: #800000;
+    color: #FFD700;
+    padding: 8px 16px;
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     display: inline-block;
     cursor: pointer;
     transition: background-color 0.3s;
     text-decoration: none;
   }
-  .go-back:hover { background-color: #FF8C66; }
-  pre { white-space: pre-wrap; font-family: 'Arial', sans-serif; }
+  .go-back:hover { background-color: #A52A2A; }
+  pre {
+    white-space: pre-wrap;
+    font-family: 'Arial', sans-serif;
+  }
   footer {
     margin-top: auto;
-    padding-top: 20px;
-    font-size: 0.9rem;
-    color: #D84315;
+    padding-top: 25px;
+    font-size: 1rem;
+    color: #FFD700;
     text-align: center;
+    text-shadow: 1px 1px 2px #800000;
   }
   #searchBar {
     width: 100%;
     max-width: 400px;
     padding: 10px;
     border-radius: 12px;
-    border: 1px solid #FF6F61;
+    border: 2px solid #FFD700;
     margin-bottom: 15px;
+    font-size: 1rem;
   }
 </style>
 </head>
 <body>
 
-<h1 class="text-4xl font-bold text-red-700 mb-6">Ijere Thanksgiving</h1>
+<h1 class="text-4xl font-bold mb-6">Ijere Thanksgiving</h1>
 
 <input id="searchBar" type="text" placeholder="Search songs..." onkeyup="filterSongs()"/>
 
@@ -86,140 +96,157 @@
 
 <div id="lyricsContainer" class="lyrics-section"></div>
 
-<footer>Thanks for coming. Wishing you a Merry Christmas and a Prosperous New Year.</footer>
+<footer>
+Thank you for coming,<br>
+we're wishing you a Merry Christmas and Prosperous New Year. – The Ijere's
+</footer>
 
 <script>
 const songs = [
 {
   title: "Broken",
   artist: "- Kaestrings",
-  lyrics: `Unworthy is my state,
-But Lord, Your love calls to me.
-Child, be bold and come;
-Father, here I am.
+  lyrics: `Unworthy is my state
+But Lord, your love calls to me
+Child, be bold and come
+Father, here I am
 
-Gyara ni Ya Yesu na (Please fix me, Lord)
-In zama kamar da kai (That I may become more like You)
-Gyara ni Ya Yesu na (Please fix me, Lord)
-Gyara ni ma ai’kin ka (Fix me for Your service)
+Gyara ni Ya Yesu na (please fix me Lord)
+In zama kamar da kai (that I may become more like you)
+Gyara ni Ya Yesu na (please fix me Lord)
+Gyara ni ma ai’kin ka (fix me for your service)
 
-Gyara ni Ya Yesu na (Please fix me, Lord)
-In zama kamar da kai (That I may become more like You)
-Gyara ni Ya Yesu na (Please fix me, Lord)
-Gyara ni masoyi na (Fix me, my lover)
+Gyara ni Ya Yesu na (please fix me Lord)
+In zama kamar da kai (that I may become more like you)
+Gyara ni Ya Yesu na (please fix me Lord)
+Gyara ni masoyi na (fix me my lover)
 
-Gyara ni Ya Yesu na (Please fix me, Lord)
-In zama kamar da kai (That I may become more like You)
-Gyara ni Ya Yesu na (Please fix me, Lord)
-Gyara ni ma ai'kin ka (Fix me for Your service)
+Gyara ni Ya Yesu na (please fix me Lord)
+In zama kamar da kai (that I may become more like you)
+Gyara ni Ya Yesu na (please fix me Lord)
+Gyara ni ma ai'kin ka (fix me for your service)
 
-Gyara ni Ya Yesu na (Please fix me, Lord)
-In zama kamar da kai (That I may become more like You)
-Gyara ni Ya Yesu na (Please fix me, Lord)
-Gyara ni masoyi na (Fix me, my lover)
-Gyara ni masoyi na (Fix me, my lover)
-Gyara ni masoyi na (Fix me, my lover)
+Gyara ni Ya Yesu na (please fix me Lord)
+In zama kamar da kai (that I may become more like you)
+Gyara ni Ya Yesu na (please fix me Lord)
+Gyara ni masoyi na (fix me my lover)
+Gyara ni masoyi na (fix me my lover)
+Gyara ni masoyi na (fix me my lover)
 
-Gyara ni masoyi na (Fix me, my lover)
-Gyara ni masoyi na (Fix me, my lover)
+Gyara ni masoyi na (fix me my lover)
+Gyara ni masoyi na (fix me my lover)
 
-Gyara ni ma ai'kin ka (Fix me for Your service)
-Gyara ni ma ai’kin ka (Fix me for Your service)
+Gyara ni ma ai'kin ka (fix me for your service)
+Gyara ni ma ai’kin ka (fix me for your service)
 
-Gyara ni ma ai'kin ka (Fix me for Your service)
-Gyara ni ma ai'kin ka (Fix me for Your service)
+Gyara ni ma ai'kin ka (fix me for your service)
+Gyara ni ma ai'kin ka (fix me for your service)
 
-Gyara ni ma ceto na (Fix me, my Savior)
-Gyara ni ma ceto na (Fix me, my Savior)
+Gyara ni ma ceto na (fix me, my Savior)
+Gyara ni ma ceto na (fix me, my Savior)
 
-Gyara ni ma ceto na (Fix me, my Savior)
-Gyara ni ma ceto na (Fix me, my Savior)
+Gyara ni ma ceto na (fix me, my Savior)
+Gyara ni ma ceto na (fix me, my Savior)
 
-Gyara ni ma ai'kin ka (Fix me for Your service)
-Gyara ni ma ai'kin ka (Fix me for Your service)
+Gyara ni ma ai'kin ka (fix me for your service)
+Gyara ni ma ai'kin ka (fix me for your service)
 
-Gyara ni ma ai'kin ka (Fix me for Your service)
-Gyara ni ma ai'kin ka (Fix me for Your service)
+Gyara ni ma ai'kin ka (fix me for your service)
+Gyara ni ma ai'kin ka (fix me for your service)
 
-Oh, oh, oh,
-Oh, oh, oh,
-Oh, oh, oh.`
+Oh oh oh
+Oh oh oh
+Oh oh oh`
 },
 {
   title: "Rahama",
   artist: "- Kaestrings",
-  lyrics: `O Lord, my God,
-All that I want is Your touch;
+  lyrics: `O Lord, my God
+All that I want is Your touch
 My faith is heightened
-On this mountain, to drink from Your love.
+On this mountain, to drink from Your love
 
-O Yesu, Mai Rahama,
-Ji addua ta;
-Ban da wani sai Kai.
-Yesu, Mai Rahama,
-Ga hawaye na;
-Ban da wani sai Kai.
+O Yesu, Mai Rahama
+Ji addua ta
+Ban da wani sai Kai
+Yesu, Mai Rahama
+Ga hawaye na
+Ban da wani sai Kai
 
-Ooh-ooh,
-Ooh-ooh,
-Ooh-ooh,
-Ooh-ooh.
+Ooh-ooh
+Ooh-ooh
+Ooh-ooh
+Ooh-ooh
 
-O Lord, my God,
-All that I want is Your touch;
+O Lord (Yeah), my God
+All that I want is Your touch (Oh, yeah)
 My faith is heightened
-On this mountain, to drink from Your love.
+On this mountain, to drink from Your love
+(O Lord, my God) O Lord (Woah), my God
+All that I want is Your touch (Ooh)
+(My faith) My faith is heightened (Yes)
+On this mountain, to drink from Your love
 
-Yesu, Mai Rahama,
-Ji addua ta;
-Ban da wani sai Kai.
-Yesu, Mai Rahama,
-Ga hawaye na;
-Ban da wani sai Kai.
+(Waoh, Yesu) Yesu, Mai Rahama
+(Ji addua ta) Ji addua ta
+(Woah) Ban da wani sai Kai
+(Yeah) Yesu, Mai Rahama
+Ga hawaye na (Yeah)
+Ban da wani sai Kai (Declare to He hears, Yesu)
+Yesu (Oh), Mai Rahama
+(Ji addua ta) Ji addua ta 
+Ban da wani sai Kai
+(Yesu) Yesu (Ooh), Mai Rahama (Rahama)
+Ga hawaye na
+Ban da wani sai Kai (Woah)
 
-Oh-oh-oh-oh,
-Oh-oh-oh-oh,
-Oh-oh-oh-oh,
-Oh-oh-oh-oh.`
+Oh-oh-oh-oh (Oh)
+Oh-oh-oh-oh (Oh-oh-oh, yeah)
+Oh-oh-oh-oh (Woah)
+Oh-oh-oh-oh (For we have no high priests)
+Oh-oh-oh-oh ([?])
+Oh-oh-oh-oh ([?])
+Oh-oh-oh-oh (Yeah, yeah)
+Oh-oh-oh-oh`
 },
 {
   title: "Haske",
   artist: "- Kaestrings",
-  lyrics: `Ya Yesu, kai ne haske na (Jesus, You are my Light)
+  lyrics: `Ya Yesu kai ne haske na (Jesus, You are my Light)
 Nda ka bi hanyan nan zan bi (The path You take is where I’ll follow)
 
-Ni zan bi ka’ (I will follow You)
+Ni zan bi ka’(I will follow You)
 Kai ne haske na (You are my Light)
 Kai ne gaskiya (You are TRUTH)
 
 Step by step,
 Everyday,
-All my days.`
+All my days`
 },
 {
   title: "Soaking",
   artist: "- Kaestrings",
-  lyrics: `Give me substance,
-Give me proofs,
-Give me presence,
-Give me You.
+  lyrics: `Give me substance
+Give me proofs
+Give me presence
+Give me You
 
-Let it show that I met with You.
-Chant:
-Give me substance,
-Give me proofs,
-Give me presence,
-Give me You.
+Let it show that I met with You
+Chant
+Give me substance
+Give me proofs
+Give me PRESENCE
+Give me You
 
-All I need is one encounter;
-Lord, may it be known that I met with You.`
+All I need is one encounter
+Lord, may it be known that I met with You`
 },
 {
   title: "Ga shi nan",
   artist: "- Kaestrings",
-  lyrics: `Where two or three are gathered,
-Lord, You said You’ll be there;
-So, Lord, we’re here, we honour Your presence.
+  lyrics: `Where two or three are gathered
+Lord You said You’ll be there
+So, Lord, we’re here, we honour Your presence
 
 Ga shi nan (Here He is)
 Ga mu nan (Here we are)
@@ -228,7 +255,7 @@ Ya na nan (He is here)
 Sarkin Sarakuna (King of kings)
 Ya na nan (He is here)
 Gagara misali (Incomparable one)
-Ya na nan (He is here).`
+Ya na nan (He is here)`
 }
 ];
 
@@ -273,6 +300,5 @@ function goBack() {
 
 renderSongs(songs);
 </script>
-
 </body>
 </html>
