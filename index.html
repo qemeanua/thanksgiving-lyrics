@@ -7,8 +7,8 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   body {
-    background: linear-gradient(to bottom, #800000, #b22222); /* burgundy festive background */
-    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #800000, #b22222);
+    font-family: Arial, sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -26,15 +26,14 @@
     width: 100%;
     max-width: 350px;
     background-color: #b22222;
-    color: #fff; /* buttons text white */
+    color: #fff;
     font-size: 1.2rem;
-    text-align: center;
     padding: 14px;
     border-radius: 12px;
     margin: 10px 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
     cursor: pointer;
-    transition: transform 0.2s, background-color 0.3s;
+    transition: 0.2s;
   }
   .song-button:hover {
     background-color: #cd5c5c;
@@ -44,7 +43,7 @@
     display: none;
     width: 100%;
     max-width: 800px;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255,255,255,0.95);
     border-radius: 12px;
     padding: 25px;
     margin-top: 20px;
@@ -57,24 +56,20 @@
     color: #FFD700;
     padding: 8px 16px;
     border-radius: 8px;
-    margin-bottom: 15px;
-    display: inline-block;
     cursor: pointer;
-    transition: background-color 0.3s;
-    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 15px;
   }
-  .go-back:hover { background-color: #cd5c5c; }
   pre {
     white-space: pre-wrap;
-    font-family: 'Arial', sans-serif;
   }
   footer {
     margin-top: auto;
     padding-top: 25px;
     font-size: 1rem;
     text-align: center;
-    color: #fff; /* footer white */
-    text-shadow: 1px 1px 2px #FFD700;
+    color: #FFD700; /* GOLD like header */
+    text-shadow: 2px 2px 4px #400000;
   }
   #searchBar {
     width: 100%;
@@ -84,6 +79,7 @@
     border: 2px solid #FFD700;
     margin-bottom: 15px;
     font-size: 1rem;
+    color: #000;
   }
 </style>
 </head>
@@ -91,414 +87,55 @@
 
 <h1 class="text-4xl font-bold mb-6">Ijere Thanksgiving</h1>
 
-<input id="searchBar" type="text" placeholder="Search songs..." onkeyup="filterSongs()"/>
+<input id="searchBar" type="text" placeholder="Search songs..." onkeyup="filterSongs()" />
 
 <div id="songsContainer" class="flex flex-col items-center w-full"></div>
-
 <div id="lyricsContainer" class="lyrics-section"></div>
 
 <footer>
-Thank you for coming!<br>
-We wish you a Merry Christmas and a Happy New Year – The Ijere's
+Thank you for coming! <br>
+We wish you a Merry Christmas and a prosperous New Year – The Ijere’s.
 </footer>
 
 <script>
 const songs = [
-{
-  title: "Broken",
-  artist: "- Kaestrings",
-  lyrics: `In the stillness of my soul
-Is a loud cry to you
-Before you i stand
-Helpless, vulnerable
+  {
+    title: "Broken",
+    artist: "- Kaestrings",
+    lyrics: `In the stillness of my soul
+Is a loud cry to You.
+Before You, I stand –
+Helpless, vulnerable.
 
-Unworthy is my state
-But Lord, your love calls to me
-Child, be bold and come
-Father, here i am
-
-Gyara ni Ya Yesu na (please fix me Lord)
-In zama kamar da kai (that i may become more like you)
-Gyara ni Ya Yesu na (please fix me Lord)
-Gyara ni ma ai’kin ka (fix me for your service)
-
-Gyara ni Ya Yesu na (please fix me Lord)
-In zama kamar da kai (that i may become more like you)
-Gyara ni Ya Yesu na (please fix me Lord)
-Gyara ni masoyi na (fix me my lover)
-
-Oh,Oh,Oh
-Oh,Oh,Oh
-Oh,Oh,Oh
-
-Unworthy is my state
-But Lord, your love calls to me
-Child, be bold and come
-Father, here i am
-
-Gyara ni Ya Yesu na (please fix me Lord)
-In zama kamar da kai (that i may become more like you)
-Gyara ni Ya Yesu na (please fix me Lord)
-Gyara ni ma ai'kin ka (fix me for your service)
-
-Gyara ni Ya Yesu na (please fix me Lord)
-In zama kamar da kai (that i may become more like you)
-Gyara ni Ya Yesu na (please fix me Lord)
-Gyara ni masoyi na (fix me my lover)
-
-Gyara ni Ya Yesu na (please fix me Lord)
-In zama kamar da kai (that i may become more like you)
-Gyara ni Ya Yesu na (please fix me Lord)
-Gyara ni ma ai'kin ka (fix me for your service)
-
-Gyara ni Ya Yesu na (please fix me Lord)
-In zama kamar da kai (that i may become more like you)
-Gyara ni Ya Yesu na (please fix me Lord)
-Gyara ni masoyi na (fix me my lover)
-
-Gyara ni masoyi na (fix me my lover)
-Gyara ni masoyi na (fix me my lover)
-
-Gyara ni ma ai'kin ka (fix me for your service)
-Gyara ni ma ai’kin ka (fix me for your service)
-
-Gyara ni ma ceto na (fix me, my Savior)
-Gyara ni ma ceto na (fix me, my Savior)
-
-Gyara ni ma ai'kin ka (fix me for your service)
-Gyara ni ma ai'kin ka (fix me for your service)
-
-Oh oh oh
-Oh oh oh
-Oh oh oh
-
-},
-{
-  title: "Rahama",
-  artist: "- Kaestrings",
-  lyrics: `O Lord, my God
-All that I want is Your touch
+Unworthy is my state,
+But Lord, Your love calls to me:
+“Child, be bold and come.”
+Father, here I am.`
+  },
+  {
+    title: "Rahama",
+    artist: "- Kaestrings",
+    lyrics: `O Lord, my God,
+All that I want is Your touch.
 My faith is heightened
-On this mountain, to drink from your love
-
-O Yesu, Mai Rahama
-Ji addua ta
-Ban da wani sai Kai
-Yesu, Mai Rahama
-Ga hawaye na
-Ban da wani sai Kai
-
-Ooh-ooh
-Ooh-ooh
-Ooh-ooh
-Ooh-ooh
-
-O Lord (Yeah), my God
-All that I want is Your touch (Oh, yeah)
-My faith is heightened
-On this mountain, to drink from Your love
-(O Lord, my God) O Lord (Woah), my God
-All that I want is Your touch (Ooh)
-(My faith) My faith is heightened (Yes)
-On this mountain, to drink from Your love
-
-(Waoh, Yesu) Yesu, Mai Rahama
-(Ji addua ta) Ji addua ta
-(Woah) Ban da wani sai Kai
-(Yeah) Yesu, Mai Rahama
-Ga hawaye na (Yeah)
-Ban da wani sai Kai (Declare to He hears, Yesu)
-Yesu (Oh), Mai Rahama
-(Ji addua ta) Ji addua ta 
-Ban da wani sai Kai
-(Yesu) Yesu (Ooh), Mai Rahama (Rahama)
-Ga hawaye na
-Ban da wani sai Kai (Woah)
-
-Oh-oh-oh-oh (Oh)
-Oh-oh-oh-oh (Oh-oh-oh, yeah)
-Oh-oh-oh-oh (Woah)
-Oh-oh-oh-oh (For we have no high priests)
-Oh-oh-oh-oh 
-Oh-oh-oh-oh 
-Oh-oh-oh-oh (Yeah, yeah)
-Oh-oh-oh-oh
-
-(Sing: "Yesu") Yesu (Woah), Mai Rahama
-(Ji addua ta) Ji addua ta
-Ban da wani sai Kai
-(Yesu) Yesu, (Mai Rahama) Mai Rahama
-(Ga hawaye) Ga hawaye na
-(Yeah) Ban da wani sai Kai (Lift it up again)
-(Yesu) Yesu (Oh), Mai Rahama
-(Ji addua ta) Ji addua ta
-Ban da wani sai Kai
-(Only You, my God) Yesu (Yeah), Mai Rahama
-(Ga hawaye na) Ga hawaye na
-(Woah, yeah) Ban da wani sai Kai
-
-Ban da wani sai Kai (Ban da wani sai Kai)
-Ban da wani sai Kai (Ban da wani sai Kai)
-Ban da wani sai Kai (Ban da wani sai Kai)
-Ban da wani sai Kai (Ban da wani sai Kai)
-(Ban da wani sai Kai)
-(Ban da wani sai Kai)
-(Ban da wani sai Kai)
-(Ban da wani sai Kai)
-
-(Yesu) Yesu (Oh), Mai Rahama
-(Ji addua ta) Ji addua ta
-Ban da wani sai Kai (Ooh, Yesu)
-Yesu (Son of David), Mai Rahama
-(Have mercy) Ga hawaye na
-(Ban da wani) Ban da wani sai Kai
-One more time, from your heart declare it
-Yesu (Oh), Mai Rahama
-(Ji addua ta) Ji addua ta
-(Ooh) Ban da wani sai Kai
-(Ye-) Yesu, Mai Rahama
-Ga hawaye na
-(Ban da wani) Ban da wani sai Kai`
-},
-{
-  title: "Haske",
-  artist: "- Kaestrings",
-  lyrics: `Ya Yesu kai ne haske na
-Nda ka bi hanyan nan zan bi
-Ya Yesu kai ne haske na
-Nda ka bi hanyan nan zan bi
-Ya Yesu kai ne haske na
-Nda ka bi hanyan nan zan bi
-Ya Yesu kai ne haske na
-Nda ka bi hanyan nan zan bi
-  
-Ni zan bi ka
-Ni zan bi ka
-Kai ne haske na
-Ni zan bi ka
-  
-Ni zan bi ka
-Ni zan bi ka
-Kai ne gaskiya
-Ni zan bi ka
-  
-Ni zan bi ka
-Ni zan bi ka
-Kai ne haske na
-Ni zan bi ka
-  
-Ni zan bi ka
-Ni zan bi ka
-Kai ne gaskiya
-Ni zan bi ka
-  
-You just lead me on
-I will follow You
-Step by step
-Step by step
-You just lead me on
-I will ride with You
-Everyday
-All my days
-  
-Ya Yesu kai ne haske na
-Nda ka bi hanyan nan zan bi
-Ya Yesu kai ne haske na
-Nda ka bi hanyan nan zan bi
-Ya Yesu kai ne haske na
-Nda ka bi hanyan nan zan bi
-Ya Yesu kai ne haske na
-Nda ka bi hanyan nan zan bi
-  
-Ni zan bi ka
-Ni zan bi ka
-Kai ne haske na
-Ni zan bi ka
-Ni zan bi ka
-Ni zan bi ka
-Kai ne gaskiya
-Ni zan bi ka
-
-I will follow You Jesus
-I will follow till the very end
-Forever Jesus
-Forever Jesus
-`
-},
-{
-  title: "Soaking",
-  artist: "- Kaestrings",
-  lyrics: `Give me substance
-Give me proofs
-Give me presence
-Give me You
-Give me substance
-Give me proofs
-Give me presence
-
-Let it show that I met with You
-Let it show that I met with you
-Let it show that I met with You
-Let it show that I met with you
-Chant
-Give me substance
-Give me proofs
-Give me PRESENCE
-Give me you
-
-Give me substance
-Give me proofs
-Give me EVIDENCE
-Give me you
-
-Give me substance
-Give me proofs
-Give me FIRE
-Give me you
-
-Give me substance
-Give me proofs
-Give me presence
-Let it show that I met with You
-Let it show that I met with you
-Let it show that I met with You
-Let it show that I met with you
-Lord, may it be known that I met with You
-Let it show that I met with You
-
-May it be heard that I met with Jesus
-Let it show that I met with you
-May it be felt that I met with you
-Let it show that I met with You
-And let it count that I met with you
-Let it show that I met with you
-Chant… 
-All I need is one encounter
-
-Look upon me with your mercy Lord
-All I need is one encounter
-Look upon me with your mercy Lord
-Let it show that I met with You
-Let it show that I met with you
-Let it show that I met with You
-Let it show that I met with you
-Let it show that I met with You
-Let it show that I met with you
-
-May it be known that I met with You
-Let it show that I met with You
-Let it show that I met with You
-Let it show that I met with you
-It will show that I met with you
-It will show that I met with you
-It will show that I met with you
-
-Let it show that I met with You
-Let it show that I met with you
-Let it show that I met with You
-Let it show that I met with you`
-},
-{
-  title: "Ga shi nan",
-  artist: "- Kaestrings",
-  lyrics: `Aya-ah-ah-ah
-Oh-oh-oh
-Oh-oh-oh, oh-oh
-
-Where two or three are gathered
-Lord You said You’d be there
-And Lord, we’re here
-We honour Your presence
-
-Where two or three are gathered
-Lord You said You’d be there
-And Lord, we’re here
-We honour Your presence
-
-Ga shi nan
-Ga mu nan
-Sarkin Aljanna
-Ya na nan
-
-Ga shi nan
-Ga mu nan
-Ya na nan
-
-Oh, glory hallelujah
-
-Ga shi nan
-Ga mu nan
-Sarkin Aljanna
-Ya na nan
-
-Ga shi nan
-Ga mu nan
-Ya na nan
-
-Oh-oh-oh-oh-oh-oh
-Oh-oh-oh-oh, oh-oh-oh-oh-oh-oh
-Aya-oh, oh-oh-oh-oh-oh
-Ay-yeah, miracles in the room
-Oh, oh-oh, oh-oh-oh-oh-oh-oh
-Aya-oh, oh-oh-oh, oh-oh-oh
-Ay-yeah
-
-Jesus is here, Jesus is here
-Everything I need is here
-Jesus is here, King of kings is here
-Miracles in the room
-
-Nothing is impossible in Your presence
-Nothing is impossible in Your presence, Lord
-Nothing is impossible in Your presence, Lord
-Ay-ay-ay, oh-oh-oh-ah
-
-Ga shi nan
-Ga mu nan
-Sarkin Aljanna
-Ya na nan
-
-Ga shi nan
-Ga mu nan
-Ya na nan
-
-With everything that He is
-
-Ga shi nan
-Ga mu nan
-Sarkin Aljanna
-Ya na nan
-
-Ga shi nan
-Ga mu nan
-Ya na nan
-
-Oh, Sarkin Sarakuna
-Ya na nan
-Ya na nan
-Sarkin Sarakuna
-Oh, ya na nan
-Ay-yeah
-Oh, ya na nan
-Ya na nan
-Oh, ya na nan, na na nan
-Ya na nan, ay
-
-I can never be the same again
-Because I’m in Your presence
-I can never be the same again
-Because I’m in Your presence
-Oh, oh, oh
-
-Ga shi nan
-Ga mu nan
-Sarkin Aljanna
-Ya na nan
-
-Ga shi nan
-Ga mu nan
-Ya na nan
-}
+On this mountain, to drink from Your love.`
+  },
+  {
+    title: "Haske",
+    artist: "- Kaestrings",
+    lyrics: `Jesus, You are my light.
+If You walk this path, I will follow.
+Lead me step by step;
+I will ride with You all my days.`
+  },
+  {
+    title: "Soaking",
+    artist: "- Kaestrings",
+    lyrics: `Give me substance,
+Give me proof,
+Give me presence –
+Give me You.`
+  }
 ];
 
 const songsContainer = document.getElementById("songsContainer");
@@ -508,7 +145,7 @@ function renderSongs(list) {
   songsContainer.innerHTML = "";
   list.forEach(song => {
     const btn = document.createElement("div");
-    btn.textContent = song.title;
+    btn.innerText = `${song.title} ${song.artist}`;
     btn.className = "song-button";
     btn.onclick = () => showLyrics(song);
     songsContainer.appendChild(btn);
@@ -527,9 +164,9 @@ function showLyrics(song) {
 
   lyricsContainer.style.display = "block";
   lyricsContainer.innerHTML = `
-    <span class="go-back" onclick="goBack()">← Go Back</span>
+    <div class="go-back" onclick="goBack()">← Go Back</div>
     <h2 class="text-2xl font-bold text-red-700 mb-2">${song.title}</h2>
-    <h3 class="text-lg font-medium text-red-500 mb-4">${song.artist}</h3>
+    <h3 class="text-lg font-medium text-red-600 mb-4">${song.artist}</h3>
     <pre>${song.lyrics}</pre>
   `;
 }
@@ -540,7 +177,7 @@ function goBack() {
   document.getElementById("searchBar").style.display = "block";
 }
 
-renderSongs(songs);
+renderSongs(songs); // renders buttons on load
 </script>
 
 </body>
