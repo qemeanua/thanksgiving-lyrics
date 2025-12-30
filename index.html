@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thanksgiving Lyrics</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-b from-purple-50 via-pink-50 to-rose-100 font-sans min-h-screen p-5 flex flex-col items-center">
+
+  <h1 class="text-2xl md:text-3xl font-bold text-purple-700 mb-4 text-center">
+    Thanksgiving Playlist
+  </h1>
+
+  <!-- Search -->
+  <input
+    id="searchBar"
+    type="text"
+    placeholder="Search songs..."
+    class="w-full max-w-md p-3 rounded-xl shadow-sm border border-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-300 mb-6"
+    onkeyup="filterSongs()"
+  />
+
+  <!-- Song buttons -->
+  <div id="songsContainer" class="w-full max-w-lg grid grid-cols-2 sm:grid-cols-3 gap-3"></div>
+
+  <!-- Lyrics section -->
+  <div id="lyricsDisplay" class="w-full max-w-lg mt-6 space-y-4"></div>
+
+  <footer class="mt-auto pt-10 text-purple-600 text-sm text-center">
+    Ijere Thanksgiving
+  </footer>
+
+<script>
+  const songs = [
+    {
+      title: "Broken",
+      lyrics: `Unworthy is my state
+But Lord, your love calls to me
+Child, be bold and come
+Father, here i am
+
+Gyara ni Ya Yesu na (please fix me Lord)
+In zama kamar da kai (that i may become more like you)
+Gyara ni Ya Yesu na (please fix me Lord)
+Gyara ni ma ai’kin ka (fix me for your service)
+
+Gyara ni Ya Yesu na (please fix me Lord)
+In zama kamar da kai (that i may become more like you)
+Gyara ni Ya Yesu na (please fix me Lord)
+Gyara ni masoyi na (fix me my lover)
+
+Gyara ni Ya Yesu na (please fix me Lord)
+In zama kamar da kai (that i may become more like you)
+Gyara ni Ya Yesu na (please fix me Lord)
+Gyara ni ma ai'kin ka (fix me for your service)
+
+Gyara ni Ya Yesu na (please fix me Lord)
+In zama kamar da kai (that i may become more like you)
+Gyara ni Ya Yesu na (please fix me Lord)
+Gyara ni masoyi na (fix me my lover)
+Gyara ni masoyi na (fix me my lover)
+Gyara ni masoyi na (fix me my lover)
+
+Gyara ni masoyi na (fix me my lover)
+Gyara ni masoyi na (fix me my lover)
+
+Gyara ni ma ai'kin ka (fix me for your service)
+Gyara ni ma ai’kin ka (fix me for your service)
+
+Gyara ni ma ai'kin ka (fix me for your service)
+Gyara ni ma ai'kin ka (fix me for your service)
+
+Gyara ni ma ceto na (fix me, my Savior)
+Gyara ni ma ceto na (fix me, my Savior)
+
+Gyara ni ma ceto na (fix me, my Savior)
+Gyara ni ma ceto na (fix me, my Savior)
+
+Gyara ni ma ai'kin ka (fix me for your service)
+Gyara ni ma ai'kin ka (fix me for your service)
+
+Gyara ni ma ai'kin ka (fix me for your service)
+Gyara ni ma ai'kin ka (fix me for your service)
+
+Oh oh oh
+Oh oh oh
+Oh oh oh`
+    },
+    {
+      title: "Rahama",
+      lyrics: `O Lord, my God
+All that I want is Your touch
+My faith is heightened
+On this mountain, to drink from Your love
+
+O Yesu, Mai Rahama
+Ji addua ta
+Ban da wani sai Kai
+Yesu, Mai Rahama
+Ga hawaye na
+Ban da wani sai Kai
+
+Ooh-ooh
+Ooh-ooh
+Ooh-ooh
+Ooh-ooh
+
+O Lord (Yeah), my God
+All that I want is Your touch (Oh, yeah)
+My faith is heightened
+On this mountain, to drink from Your love
+(O Lord, my God) O Lord (Woah), my God
+All that I want is Your touch (Ooh)
+(My faith) My faith is heightened (Yes)
+On this mountain, to drink from Your love
+
+(Waoh, Yesu) Yesu, Mai Rahama
+(Ji addua ta) Ji addua ta
+(Woah) Ban da wani sai Kai
+(Yeah) Yesu, Mai Rahama
+Ga hawaye na (Yeah)
+Ban da wani sai Kai (Declare to He hears, Yesu)
+Yesu (Oh), Mai Rahama
+(Ji addua ta) Ji addua ta 
+Ban da wani sai Kai
+(Yesu) Yesu (Ooh), Mai Rahama (Rahama)
+Ga hawaye na
+Ban da wani sai Kai
+
+Oh-oh-oh-oh (Oh)
+Oh-oh-oh-oh (Oh-oh-oh, yeah)
+Oh-oh-oh-oh (Woah)
+Oh-oh-oh-oh (For we have no high priests)
+Oh-oh-oh-oh ([?])
+Oh-oh-oh-oh ([?])
+Oh-oh-oh-oh (Yeah, yeah)
+Oh-oh-oh-oh
+
+(Sing: "Yesu") Yesu (Woah), Mai Rahama
+(Ji addua ta) Ji addua ta
+Ban da wani sai Kai
+(Yesu) Yesu, (Mai Rahama) Mai Rahama
+(Ga hawaye) Ga hawaye na
+(Yeah) Ban da wani sai Kai (Lift it up again)
+(Yesu) Yesu (Oh), Mai Rahama
+(Ji addua ta) Ji addua ta
+Ban da wani sai Kai
+(Only You, my God) Yesu (Yeah), Mai Rahama
+(Ga hawaye na) Ga hawaye na
+(Woah, yeah) Ban da wani sai Kai
+
+[Post-Chorus]
+Ban da wani sai Kai (Ban da wani sai Kai)
+Ban da wani sai Kai (Ban da wani sai Kai)
+Ban da wani sai Kai (Ban da wani sai Kai)
+Ban da wani sai Kai (Ban da wani sai Kai)
+(Ban da wani sai Kai)
+(Ban da wani sai Kai)
+(Ban da wani sai Kai)
+(Ban da wani sai Kai)
+
+(Yesu) Yesu (Oh), Mai Rahama
+(Ji addua ta) Ji addua ta
+Ban da wani sai Kai (Ooh, Yesu)
+Yesu (Son of David), Mai Rahama
+(Have mercy) Ga hawaye na
+(Ban da wani) Ban da wani sai Kai
+One more time, from your heart declare it
+Yesu (Oh), Mai Rahama
+(Ji addua ta) Ji addua ta
+(Ooh) Ban da wani sai Kai
+(Ye-) Yesu, Mai Rahama
+Ga hawaye na
+(Ban da wani) Ban da wani sai Kai
+
+Ooh-ooh
+Ooh-ooh
+Ooh-ooh
+Ooh-ooh
+Ooh-ooh
+Ooh-ooh, ah, yeah
+Ooh-ooh
+Ooh-ooh
+
+Yesu, Mai Rahama
+Ji addua ta
+Ban da wani sai Kai
+Yesu, Mai Rahama
+Ga hawaye na
+Ban da wani sai Kai
+Yesu, Mai Rahama
+Ji addua ta
+Ban da wani sai Kai
+Yesu, Mai Rahama
+Ga hawaye na
+Ban da wani sai Kai
+(Sing: "Yesu") Yesu (Oh), Mai Rahama
+(Ji addua ta) Ji addua ta
+(Son of David, have Your way) Ban da wani sai Kai
+(Have Your way, yeah) Yesu, Mai Rahama
+(Ga hawaye na) Ga hawaye na
+Ban da wani sai Kai
+
+Ooh
+Ooh
+Ooh
+Oh
+Oh`
+    },
+    {
+      title: "Haske",
+      lyrics: `Ya Yesu kai ne haske na (Jesus, You are my Light)
+Nda ka bi hanyan nan zan bi (The path You take is where I’ll follow)
+
+Ya Yesu kai ne haske na (Jesus, You are my Light)
+Nda ka bi hanyan nan zan bi (The path You take is where I’ll follow)
+
+Ya Yesu kai ne haske na (Jesus, You are my Light)
+Nda ka bi hanyan nan zan bi (The path You take is where I’ll follow)
+
+Ya Yesu kai ne haske na (Jesus, You are my Light)
+Nda ka bi hanyan nan zan bi (Yhe path You take is where I’ll follow)
+
+Ni zan bi ka’(I will follow You)
+Ni zan bi ka’ (I will follow You)
+Kai ne haske na (You are my Light)
+Ni zan bi ka’ (I will follow You)
+
+Ni zan bi ka’ (I will follow You)
+Ni zan bi ka’ (I will follow You)
+Kai ne gaskiya (You are TRUTH)
+Ni zan bi ka’ (I will follow You)
+
+You just lead me on
+I will follow You
+Step by step
+Step by step
+
+You just lead me on
+I will ride with You
+Everyday
+All my days`
+    },
+    {
+      title: "Soaking",
+      lyrics: `Give me substance
+Give me proofs
+Give me presence
+Give me You
+Give me substance
+Give me proofs
+Give me presence
+
+Let it show that i met with You
+Let it show that i met with you
+Let it show that i met with You
+Let it show that i met with you
+Chant
+Give me substance
+Give me proofs
+Give me PRESENCE
+Give me you
+
+Give me substance
+Give me proofs
+Give me EVIDENCE
+Give me you
+
+Give me substance
+Give me proofs
+Give me FIRE
+Give me you
+
+Give me substance
+Give me proofs
+Give me presence
+Let it show that i met with You
+Let it show that i met with you
+Let it show that i met with You
+Let it show that i met with you
+Lord, may it be known that i met with You
+Let it show that i met with You
+
+May it be heard that i met with Jesus
+Let it show that i met with you
+May it be felt that i met with you
+Let it show that i met with You
+And let it count that i met with you
+Let it show that i met with you
+Chant…
+All i need is one encounter
+
+Look upon me with your mercy Lord
+All i need is one encounter
+Look upon me with your mercy Lord
+Let it show that i met with You
+Let it show that i met with you
+Let it show that i met with You
+Let it show that i met with you
+Let it show that i met with You
+Let it show that i met with you
+
+may it be known that i met with You
+Let it show that i met with You
+Let it show that i met with You
+Let it show that i met with you
+It will show that i met with you
+It will show that i met with you
+It will show that i met with you
+It will show that i met with you`
+    },
+    {
+      title: "Ga shi nan",
+      lyrics: `Where two or three are gathered
+Lord You said You’ll be there
+So, Lord, we’re here, we honour Your presence
+Where two or three are gathered
+Lord You said You’ll be there
+So, Lord, we’re here, we honor Your presence
+Ga shi nan (Here He is)
+Ga mu nan (Here we are)
+Sarki Aljana (King of Heaven)
+Ya na nan (He is here)
+Ga shi nan (Here He is)
+Ga mu nan (Here we are)
+Ya na nan (He is here)
+Sarkin Sarakuna (King of kings)
+Ya na nan (He is here)
+Ya na nan (He is here)
+Gagara misali (Incomparable one)
+Ya na nan (He is here)`
+    }
+  ];
+
+  const container = document.getElementById("songsContainer");
+  const lyricsBox = document.getElementById("lyricsDisplay");
+
+  function renderSongs(list) {
+    container.innerHTML = "";
+    list.forEach(song => {
+      container.innerHTML += `
+        <button onclick="toggleLyrics('${song.title}')"
+          class="bg-purple-600 text-white p-2 rounded-xl shadow-sm hover:opacity-90 transition">
+          ${song.title}
+        </button>
+      `;
+    });
+  }
+
+  function filterSongs() {
+    const query = document.getElementById("searchBar").value.toLowerCase();
+    const filtered = songs.filter(song => song.title.toLowerCase().includes(query));
+    renderSongs(filtered);
+  }
+
+  function toggleLyrics(songTitle) {
+    const song = songs.find(s => s.title === songTitle);
+    const existing = document.getElementById("lyric-" + songTitle);
+
+    if (existing) {
+      existing.remove();
+    } else {
+      lyricsBox.innerHTML += `
+        <div id="lyric-${song.title}" class="bg-white p-4 rounded-xl shadow-sm border border-purple-200">
+          <h2 class="text-lg font-semibold text-purple-700 mb-2">${song.title}</h2>
+          <p class="text-gray-700 whitespace-pre-line">${song.lyrics}</p>
+        </div>
+      `;
+    }
+  }
+
+  renderSongs(songs);
+</script>
+
+</body>
+</html>
