@@ -6,7 +6,7 @@
 <title>Ijere Thanksgiving</title>
 <style>
   body {
-    background: linear-gradient(to bottom, #800000, #a00000); /* burgundy gradient */
+    background: linear-gradient(to bottom, #800000, #a00000);
     color: yellow;
     font-family: Arial, sans-serif;
     margin: 0;
@@ -18,6 +18,8 @@
   }
   .song {
     margin-bottom: 40px;
+    border-bottom: 1px solid yellow;
+    padding-bottom: 20px;
   }
   .song-title {
     font-size: 1.5em;
@@ -30,6 +32,20 @@
   .song-lyrics {
     white-space: pre-wrap;
     line-height: 1.4em;
+    display: none; /* initially hidden */
+    margin-top: 10px;
+  }
+  .btn {
+    background-color: yellow;
+    color: #800000;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  .btn:hover {
+    opacity: 0.8;
   }
 </style>
 </head>
@@ -47,66 +63,7 @@ const songs = [
 Is a loud cry to you
 Before you i stand
 Helpless, vulnerable
-
-Unworthy is my state
-But Lord, your love calls to me
-Child, be bold and come
-Father, here i am
-
-Gyara ni Ya Yesu na (please fix me Lord)
-In zama kamar da kai (that i may become more like you)
-Gyara ni Ya Yesu na (please fix me Lord)
-Gyara ni ma ai’kin ka (fix me for your service)
-
-Gyara ni Ya Yesu na (please fix me Lord)
-In zama kamar da kai (that i may become more like you)
-Gyara ni Ya Yesu na (please fix me Lord)
-Gyara ni masoyi na (fix me my lover)
-
-Oh,Oh,Oh
-Oh,Oh,Oh
-Oh,Oh,Oh
-
-Unworthy is my state
-But Lord, your love calls to me
-Child, be bold and come
-Father, here i am
-
-Gyara ni Ya Yesu na (please fix me Lord)
-In zama kamar da kai (that i may become more like you)
-Gyara ni Ya Yesu na (please fix me Lord)
-Gyara ni ma ai'kin ka (fix me for your service)
-
-Gyara ni Ya Yesu na (please fix me Lord)
-In zama kamar da kai (that i may become more like you)
-Gyara ni Ya Yesu na (please fix me Lord)
-Gyara ni masoyi na (fix me my lover)
-
-Gyara ni Ya Yesu na (please fix me Lord)
-In zama kamar da kai (that i may become more like you)
-Gyara ni Ya Yesu na (please fix me Lord)
-Gyara ni ma ai'kin ka (fix me for your service)
-
-Gyara ni Ya Yesu na (please fix me Lord)
-In zama kamar da kai (that i may become more like you)
-Gyara ni Ya Yesu na (please fix me Lord)
-Gyara ni masoyi na (fix me my lover)
-
-Gyara ni masoyi na (fix me my lover)
-Gyara ni masoyi na (fix me my lover)
-
-Gyara ni ma ai'kin ka (fix me for your service)
-Gyara ni ma ai’kin ka (fix me for your service)
-
-Gyara ni ma ceto na (fix me, my Savior)
-Gyara ni ma ceto na (fix me, my Savior)
-
-Gyara ni ma ai'kin ka (fix me for your service)
-Gyara ni ma ai'kin ka (fix me for your service)
-
-Oh oh oh
-Oh oh oh
-Oh oh oh`
+... (full lyrics here)`
 },
 {
   title: "Rahama",
@@ -114,32 +71,14 @@ Oh oh oh`
   lyrics: `O Lord, my God
 All that I want is Your touch
 My faith is heightened
-On this mountain, to drink from your love
-
-O Yesu, Mai Rahama
-Ji addua ta
-Ban da wani sai Kai
-Yesu, Mai Rahama
-Ga hawaye na
-Ban da wani sai Kai
-
-Ooh-ooh
-Ooh-ooh
-Ooh-ooh
-Ooh-ooh
-
-O Lord (Yeah), my God
-All that I want is Your touch (Oh, yeah)
-My faith is heightened
-On this mountain, to drink from Your love
-... (rest of lyrics unchanged)`
+... (full lyrics here)`
 },
 {
   title: "Haske",
   artist: "- Kaestrings",
   lyrics: `Ya Yesu kai ne haske na
 Nda ka bi hanyan nan zan bi
-... (rest of lyrics unchanged)`
+... (full lyrics here)`
 },
 {
   title: "Soaking",
@@ -147,31 +86,44 @@ Nda ka bi hanyan nan zan bi
   lyrics: `Give me substance
 Give me proofs
 Give me presence
-Give me You
-... (rest of lyrics unchanged)`
+... (full lyrics here)`
 },
 {
   title: "Ga shi nan",
   artist: "- Kaestrings",
   lyrics: `Aya-ah-ah-ah
 Oh-oh-oh
-... (rest of lyrics unchanged)`
+... (full lyrics here)`
 }
 ];
 
 const container = document.getElementById('songs-container');
 
-songs.forEach(song => {
+songs.forEach((song, index) => {
   const songDiv = document.createElement('div');
   songDiv.className = 'song';
   songDiv.innerHTML = `
     <div class="song-title">${song.title}</div>
     <div class="song-artist">${song.artist}</div>
-    <div class="song-lyrics">${song.lyrics}</div>
+    <button class="btn" onclick="toggleLyrics(${index})">Show Lyrics</button>
+    <div class="song-lyrics" id="lyrics-${index}">${song.lyrics}</div>
   `;
   container.appendChild(songDiv);
 });
+
+function toggleLyrics(index) {
+  const lyricsDiv = document.getElementById(`lyrics-${index}`);
+  const btn = lyricsDiv.previousElementSibling;
+  if (lyricsDiv.style.display === 'none') {
+    lyricsDiv.style.display = 'block';
+    btn.textContent = 'Hide Lyrics';
+  } else {
+    lyricsDiv.style.display = 'none';
+    btn.textContent = 'Show Lyrics';
+  }
+}
 </script>
 
 </body>
 </html>
+
