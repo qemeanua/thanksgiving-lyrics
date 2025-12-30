@@ -3,105 +3,244 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Thanksgiving Lyrics</title>
+<title>Ijere Thanksgiving</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-  .hidden-section { display: none; }
+  body {
+    background: linear-gradient(to bottom, #fff5f0, #ffe6e6);
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  h1 { text-align: center; }
+  .song-button {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    background-color: #FF6F61;
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 12px;
+    border-radius: 12px;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    position: relative;
+  }
+  .song-button:hover { background-color: #FF8C66; transform: translateY(-3px); }
+  .song-button::before { content: "🎁🎄"; position: absolute; left: 10px; }
+  .song-button::after { content: "🦌❄️"; position: absolute; right: 10px; }
+  .lyrics-section {
+    display: none;
+    width: 100%;
+    max-width: 700px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    overflow-y: auto;
+  }
+  .go-back {
+    background-color: #FF6F61;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+  }
+  .go-back:hover { background-color: #FF8C66; }
+  pre { white-space: pre-wrap; font-family: 'Arial', sans-serif; }
+  footer {
+    margin-top: auto;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: #D84315;
+    text-align: center;
+  }
+  #searchBar {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #FF6F61;
+    margin-bottom: 15px;
+  }
 </style>
 </head>
-<body class="bg-gradient-to-b from-orange-100 via-yellow-50 to-orange-200 font-sans min-h-screen flex flex-col items-center p-6">
+<body>
 
-<h1 class="text-3xl font-bold text-orange-800 mb-8 text-center">Ijere Thanksgiving Songs</h1>
+<h1 class="text-4xl font-bold text-red-700 mb-6">Ijere Thanksgiving</h1>
 
-<input
-  id="searchBar"
-  type="text"
-  placeholder="Search songs..."
-  class="w-full max-w-md p-3 rounded-xl shadow-sm border border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-400 mb-6"
-  onkeyup="filterSongs()"
-/>
+<input id="searchBar" type="text" placeholder="Search songs..." onkeyup="filterSongs()"/>
 
-<div id="songsContainer" class="w-full max-w-md flex flex-col gap-4"></div>
+<div id="songsContainer" class="flex flex-col items-center w-full"></div>
 
-<div id="lyricsContainer" class="w-full max-w-lg mt-6"></div>
+<div id="lyricsContainer" class="lyrics-section"></div>
 
-<footer class="mt-auto pt-10 text-orange-700 text-sm text-center">
-  Ijere Thanksgiving
-</footer>
+<footer>Thanks for coming. Wishing you a Merry Christmas and a Prosperous New Year.</footer>
 
 <script>
 const songs = [
 {
   title: "Broken",
-  lyrics: `Unworthy is my state
-But Lord, your love calls to me
-Child, be bold and come
-Father, here i am
+  artist: "- Kaestrings",
+  lyrics: `Unworthy is my state,
+But Lord, Your love calls to me.
+Child, be bold and come;
+Father, here I am.
 
-Gyara ni Ya Yesu na (please fix me Lord)
-In zama kamar da kai (that i may become more like you)
-Gyara ni Ya Yesu na (please fix me Lord)
-Gyara ni ma ai’kin ka (fix me for your service)
+Gyara ni Ya Yesu na (Please fix me, Lord)
+In zama kamar da kai (That I may become more like You)
+Gyara ni Ya Yesu na (Please fix me, Lord)
+Gyara ni ma ai’kin ka (Fix me for Your service)
 
-Gyara ni Ya Yesu na (please fix me Lord)
-In zama kamar da kai (that i may become more like you)
-Gyara ni Ya Yesu na (please fix me Lord)
-Gyara ni masoyi na (fix me my lover)
+Gyara ni Ya Yesu na (Please fix me, Lord)
+In zama kamar da kai (That I may become more like You)
+Gyara ni Ya Yesu na (Please fix me, Lord)
+Gyara ni masoyi na (Fix me, my lover)
 
-... (add full lyrics)`
+Gyara ni Ya Yesu na (Please fix me, Lord)
+In zama kamar da kai (That I may become more like You)
+Gyara ni Ya Yesu na (Please fix me, Lord)
+Gyara ni ma ai'kin ka (Fix me for Your service)
+
+Gyara ni Ya Yesu na (Please fix me, Lord)
+In zama kamar da kai (That I may become more like You)
+Gyara ni Ya Yesu na (Please fix me, Lord)
+Gyara ni masoyi na (Fix me, my lover)
+Gyara ni masoyi na (Fix me, my lover)
+Gyara ni masoyi na (Fix me, my lover)
+
+Gyara ni masoyi na (Fix me, my lover)
+Gyara ni masoyi na (Fix me, my lover)
+
+Gyara ni ma ai'kin ka (Fix me for Your service)
+Gyara ni ma ai’kin ka (Fix me for Your service)
+
+Gyara ni ma ai'kin ka (Fix me for Your service)
+Gyara ni ma ai'kin ka (Fix me for Your service)
+
+Gyara ni ma ceto na (Fix me, my Savior)
+Gyara ni ma ceto na (Fix me, my Savior)
+
+Gyara ni ma ceto na (Fix me, my Savior)
+Gyara ni ma ceto na (Fix me, my Savior)
+
+Gyara ni ma ai'kin ka (Fix me for Your service)
+Gyara ni ma ai'kin ka (Fix me for Your service)
+
+Gyara ni ma ai'kin ka (Fix me for Your service)
+Gyara ni ma ai'kin ka (Fix me for Your service)
+
+Oh, oh, oh,
+Oh, oh, oh,
+Oh, oh, oh.`
 },
 {
   title: "Rahama",
-  lyrics: `O Lord, my God
-All that I want is Your touch
+  artist: "- Kaestrings",
+  lyrics: `O Lord, my God,
+All that I want is Your touch;
 My faith is heightened
-On this mountain, to drink from Your love
+On this mountain, to drink from Your love.
 
-O Yesu, Mai Rahama
-Ji addua ta
-Ban da wani sai Kai
-Yesu, Mai Rahama
-Ga hawaye na
-Ban da wani sai Kai
+O Yesu, Mai Rahama,
+Ji addua ta;
+Ban da wani sai Kai.
+Yesu, Mai Rahama,
+Ga hawaye na;
+Ban da wani sai Kai.
 
-... (add full lyrics)`
+Ooh-ooh,
+Ooh-ooh,
+Ooh-ooh,
+Ooh-ooh.
+
+O Lord, my God,
+All that I want is Your touch;
+My faith is heightened
+On this mountain, to drink from Your love.
+
+Yesu, Mai Rahama,
+Ji addua ta;
+Ban da wani sai Kai.
+Yesu, Mai Rahama,
+Ga hawaye na;
+Ban da wani sai Kai.
+
+Oh-oh-oh-oh,
+Oh-oh-oh-oh,
+Oh-oh-oh-oh,
+Oh-oh-oh-oh.`
 },
 {
   title: "Haske",
-  lyrics: `Ya Yesu kai ne haske na (Jesus, You are my Light)
+  artist: "- Kaestrings",
+  lyrics: `Ya Yesu, kai ne haske na (Jesus, You are my Light)
 Nda ka bi hanyan nan zan bi (The path You take is where I’ll follow)
 
-... (add full lyrics)`
+Ni zan bi ka’ (I will follow You)
+Kai ne haske na (You are my Light)
+Kai ne gaskiya (You are TRUTH)
+
+Step by step,
+Everyday,
+All my days.`
 },
 {
   title: "Soaking",
-  lyrics: `Give me substance
-Give me proofs
-Give me presence
-Give me You
+  artist: "- Kaestrings",
+  lyrics: `Give me substance,
+Give me proofs,
+Give me presence,
+Give me You.
 
-... (add full lyrics)`
+Let it show that I met with You.
+Chant:
+Give me substance,
+Give me proofs,
+Give me presence,
+Give me You.
+
+All I need is one encounter;
+Lord, may it be known that I met with You.`
 },
 {
   title: "Ga shi nan",
-  lyrics: `Where two or three are gathered
-Lord You said You’ll be there
-So, Lord, we’re here, we honour Your presence
+  artist: "- Kaestrings",
+  lyrics: `Where two or three are gathered,
+Lord, You said You’ll be there;
+So, Lord, we’re here, we honour Your presence.
 
-... (add full lyrics)`
+Ga shi nan (Here He is)
+Ga mu nan (Here we are)
+Sarki Aljana (King of Heaven)
+Ya na nan (He is here)
+Sarkin Sarakuna (King of kings)
+Ya na nan (He is here)
+Gagara misali (Incomparable one)
+Ya na nan (He is here).`
 }
 ];
 
 const songsContainer = document.getElementById("songsContainer");
 const lyricsContainer = document.getElementById("lyricsContainer");
 
-// render song buttons
 function renderSongs(list) {
   songsContainer.innerHTML = "";
   list.forEach(song => {
-    const btn = document.createElement("button");
+    const btn = document.createElement("div");
     btn.textContent = song.title;
-    btn.className = "bg-orange-400 text-white text-lg text-center py-3 rounded-xl shadow-md hover:bg-orange-500 transition";
+    btn.className = "song-button";
     btn.onclick = () => showLyrics(song);
     songsContainer.appendChild(btn);
   });
@@ -114,19 +253,20 @@ function filterSongs() {
 }
 
 function showLyrics(song) {
-  // hide main menu
   songsContainer.style.display = "none";
   document.getElementById("searchBar").style.display = "none";
 
+  lyricsContainer.style.display = "block";
   lyricsContainer.innerHTML = `
-    <button onclick="goBack()" class="mb-4 px-4 py-2 bg-orange-400 text-white rounded-xl shadow-md hover:bg-orange-500 transition">← Go Back</button>
-    <h2 class="text-2xl font-bold text-orange-800 mb-4">${song.title}</h2>
-    <pre class="bg-white p-6 rounded-xl shadow-md text-gray-800 whitespace-pre-wrap">${song.lyrics}</pre>
+    <span class="go-back" onclick="goBack()">← Go Back</span>
+    <h2 class="text-2xl font-bold text-red-700 mb-2">${song.title}</h2>
+    <h3 class="text-lg font-medium text-red-500 mb-4">${song.artist}</h3>
+    <pre>${song.lyrics}</pre>
   `;
 }
 
 function goBack() {
-  lyricsContainer.innerHTML = "";
+  lyricsContainer.style.display = "none";
   songsContainer.style.display = "flex";
   document.getElementById("searchBar").style.display = "block";
 }
